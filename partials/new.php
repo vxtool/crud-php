@@ -1,18 +1,18 @@
 <?php
 $messageCreate = '';
-if(isset($_POST['cadastrar'])):
-	$nome  = $_POST['name'];
+if(isset($_POST['cadastre'])):
+	$name  = $_POST['name'];
 	$email = $_POST['email'];
 
-	$usuario->setNome($nome);
-	$usuario->setEmail($email);
+	$user->setNome($name);
+	$user->setEmail($email);
 
-	if($usuario->insert()){
+	if($user->insert()){
 		$messageCreate = "Inserido com sucesso!";
 	}
 endif;
 ?>
-<?php if( empty($_GET['acao']) || $_GET['acao'] !== 'editar'): ?>
+<?php if( empty($_GET['action']) || $_GET['action'] !== 'edit'): ?>
 <?=$messageCreate?>
 <form class="form-inline" method="post" action="">
 	<div class="form-group">
@@ -23,6 +23,6 @@ endif;
 			<input class="form-control" type="text" name="email" placeholder="E-mail:">
 		</div>
 	</div>
-	<input type="submit" name="cadastrar" class="btn btn-primary" value="Cadastrar dados">	
+	<input type="submit" name="cadastre" class="btn btn-primary" value="Cadastrar dados">	
 </form>
 <?php endif; ?>
