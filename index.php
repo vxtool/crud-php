@@ -31,8 +31,8 @@ endif;
 
 			<?=$messageDelete?>
 			<?php
-				include_once('new.php');
-				include_once('edit.php');
+				include_once('partials/new.php');
+				include_once('partials/edit.php');
 			?>
 
 			<table class="table table-hover">				
