@@ -37,13 +37,24 @@ include_once('partials/delete.php');
 							<td><?php echo $value->name; ?></td>
 							<td><?php echo $value->email; ?></td>
 							<td>
-								<?php echo "<a href='index.php?action=edit&id=" . $value->id . "'>Editar</a>"; ?>
-								<?php echo "<a href='index.php?action=delete&id=" . $value->id . "' onclick='return confirm(\"Deseja realmente deletar?\")'>Deletar</a>"; ?>
+								<a href="index.php?action=edit&amp;id=<?=$value->id?>">Editar</a>
+								<a class="js-button-delete" href="index.php?action=delete&amp;id=<?=$value->id?>">Deletar</a>
 							</td>
 						</tr>
 					</tbody>
 				<?php endforeach; ?>
 			</table>
 		</div>
+
+		<script type="text/javascript">
+			var deleteLink = document.querySelectorAll('.js-button-delete');
+			for (var i = 0, len = deleteLink.length; i < len; i++) {
+				deleteLink[i].addEventListener('click', function(event) {
+					if (!confirm("Deseja realmente deletar?")) {
+			            event.preventDefault();
+			        }
+				});
+			}		
+		</script>
 	</body>
 </html>
