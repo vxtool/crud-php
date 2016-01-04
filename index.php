@@ -1,19 +1,7 @@
 <?php
-	function __autoload($class_name){
-		require_once 'classes/' . $class_name . '.php';
-	}
-?>
-<?php
+require_once 'classes/User.php';
 $user = new User();
-
-$messageDelete = '';
-if(isset($_GET['action']) && $_GET['action'] == 'delete'):
-	$id = (int)$_GET['id'];
-	if($user->delete($id)){
-		$messageDelete = "Deletado com sucesso!";
-	}
-
-endif;
+include_once('partials/delete.php');
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-BR">
@@ -28,13 +16,11 @@ endif;
 			<header class="masthead">
 				<h1 class="muted">CRUD PHP</h1>
 			</header>
-
-			<?=$messageDelete?>
 			<?php
 				include_once('partials/new.php');
 				include_once('partials/edit.php');
 			?>
-
+			<?=$messageDelete?>
 			<table class="table table-hover">				
 				<thead>
 					<tr>
@@ -43,26 +29,21 @@ endif;
 						<th>E-mail:</th>
 						<th>Ações:</th>
 					</tr>
-				</thead>
-				
+				</thead>				
 				<?php foreach($user->findAll() as $key => $value): ?>
-
-				<tbody>
-					<tr>
-						<td><?php echo $value->id; ?></td>
-						<td><?php echo $value->name; ?></td>
-						<td><?php echo $value->email; ?></td>
-						<td>
-							<?php echo "<a href='index.php?action=edit&id=" . $value->id . "'>Editar</a>"; ?>
-							<?php echo "<a href='index.php?action=delete&id=" . $value->id . "' onclick='return confirm(\"Deseja realmente deletar?\")'>Deletar</a>"; ?>
-						</td>
-					</tr>
-				</tbody>
-
+					<tbody>
+						<tr>
+							<td><?php echo $value->id; ?></td>
+							<td><?php echo $value->name; ?></td>
+							<td><?php echo $value->email; ?></td>
+							<td>
+								<?php echo "<a href='index.php?action=edit&id=" . $value->id . "'>Editar</a>"; ?>
+								<?php echo "<a href='index.php?action=delete&id=" . $value->id . "' onclick='return confirm(\"Deseja realmente deletar?\")'>Deletar</a>"; ?>
+							</td>
+						</tr>
+					</tbody>
 				<?php endforeach; ?>
-
 			</table>
-
 		</div>
 	</body>
 </html>
