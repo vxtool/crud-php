@@ -4,12 +4,12 @@
 	}
 ?>
 <?php
-$usuario = new User();
+$user = new User();
 
 $messageDelete = '';
-if(isset($_GET['acao']) && $_GET['acao'] == 'deletar'):
+if(isset($_GET['action']) && $_GET['action'] == 'delete'):
 	$id = (int)$_GET['id'];
-	if($usuario->delete($id)){
+	if($user->delete($id)){
 		$messageDelete = "Deletado com sucesso!";
 	}
 
@@ -45,7 +45,7 @@ endif;
 					</tr>
 				</thead>
 				
-				<?php foreach($usuario->findAll() as $key => $value): ?>
+				<?php foreach($user->findAll() as $key => $value): ?>
 
 				<tbody>
 					<tr>
@@ -53,8 +53,8 @@ endif;
 						<td><?php echo $value->name; ?></td>
 						<td><?php echo $value->email; ?></td>
 						<td>
-							<?php echo "<a href='index.php?acao=editar&id=" . $value->id . "'>Editar</a>"; ?>
-							<?php echo "<a href='index.php?acao=deletar&id=" . $value->id . "' onclick='return confirm(\"Deseja realmente deletar?\")'>Deletar</a>"; ?>
+							<?php echo "<a href='index.php?action=edit&id=" . $value->id . "'>Editar</a>"; ?>
+							<?php echo "<a href='index.php?action=delete&id=" . $value->id . "' onclick='return confirm(\"Deseja realmente deletar?\")'>Deletar</a>"; ?>
 						</td>
 					</tr>
 				</tbody>
