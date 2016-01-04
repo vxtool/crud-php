@@ -4,7 +4,7 @@ if(isset($_POST['cadastre'])):
 	$name  = $_POST['name'];
 	$email = $_POST['email'];
 
-	$user->setNome($name);
+	$user->setName($name);
 	$user->setEmail($email);
 
 	if($user->insert()){

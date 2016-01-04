@@ -6,7 +6,7 @@ if(isset($_POST['update'])):
 	$name = $_POST['name'];
 	$email = $_POST['email'];
 
-	$user->setNome($name);
+	$user->setName($name);
 	$user->setEmail($email);
 
 	if($user->update($id)){

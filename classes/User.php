@@ -8,11 +8,11 @@ class User extends Crud {
 	private $name;
 	private $email;
 
-	public function setNome($name){
+	public function setName($name){
 		$this->name = $name;
 	}
 
-	public function getNome(){
+	public function getName(){
 		return $this->name;
 	}
 
