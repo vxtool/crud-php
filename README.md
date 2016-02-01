@@ -1,7 +1,7 @@
 # CRUD PHP
 
-[![licence mit](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/crud-solutions/crud-php/blob/master/LICENSE.md)
-[![issues](https://img.shields.io/github/issues/crud-solutions/crud-php.svg)](https://github.com/crud-solutions/crud-php/issues)
+[![licence mit](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://hemersonvianna.mit-license.org/)
+[![issues](https://img.shields.io/github/issues/crud-solutions/crud-php.svg?style=flat-square)](https://github.com/crud-solutions/crud-php/issues)
 
 ## Contributing
 
